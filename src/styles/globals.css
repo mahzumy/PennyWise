@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body{
+        @apply bg-slate-50 text-slate-900
+    }
+    h1, h2, h3, h4, h5, h6{
+        @apply font-bold tracking-tighter leading-tight
+    }
+    h1{
+        @apply text-4xl
+    }
+    h2{
+        @apply text-3xl
+    }
+    h3{
+        @apply text-2xl
+    }
+    h4{
+        @apply text-xl
+    }
+    h5{
+        @apply text-lg
+    }
+    h6{
+        @apply text-base
+    }
+    input{
+        @apply bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+    }
+    label{
+        @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white
+    }
+}
+
+@layer components {}
