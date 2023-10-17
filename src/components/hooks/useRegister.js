@@ -36,7 +36,7 @@ export const useRegister = () => {
       router.push("/login")
     } else{
       toast.error("password not match")
-      }
+    }
     
     };
 
