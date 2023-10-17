@@ -27,9 +27,15 @@ export const useLogin = () => {
             
         })
         toast.remove();
-        toast.success("Login Successful");
-        setLoginData({ email: "", password: "" });
-        router.push("/dashboard");
+        
+        if(!res.ok){
+            toast.error("Login Error")
+            setLoginData({ email: "", password: "" });
+        } else{
+            toast.success("Login Successful");
+            router.push("/dashboard");
+        }
+
     }
 
   return { loginData, handleChange, handleSubmitLogin }
