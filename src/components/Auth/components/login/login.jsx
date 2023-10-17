@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { LoginCard } from '@/components/Auth/components/login/login.card'
 
+
 export const Login = () => {
     
 
