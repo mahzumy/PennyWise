@@ -12,6 +12,7 @@
     "@prisma/client": "^5.4.2",
     "bcrypt": "^5.1.1",
     "jose": "^4.15.4",
+    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "next": "13.5.4",
     "prisma": "^5.4.2",

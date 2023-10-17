@@ -15,7 +15,7 @@ export async function POST(req){
 
         //check if user exist
         if(!findUser){
-            return NextResponse.json({message:"User not found"},{status:500})
+            return NextResponse.json({message:"User not found"},{status:401})
         }
 
         //compare password
@@ -23,7 +23,7 @@ export async function POST(req){
         const isPasswordValid = await bcrypt.compare(password, hashedPass);
 
         if(!isPasswordValid){
-            return NextResponse.json({message:"Invalid Password"},{status:500});
+            return NextResponse.json({message:"Invalid Password"},{status:401});
         }
        
         const payLoad = {
@@ -32,10 +32,8 @@ export async function POST(req){
             email: findUser.email
         }
         const token = sign(payLoad, process.env.SECRET_KEY, {expiresIn: "7d"});
-        const res = NextResponse.json({token, data:payLoad, message:"User Login Succesfully"},{status:201})
-        res.cookies.set("token", token);
-
-        return res;
+        return NextResponse.json({data:payLoad, token, message:"User Login Succesfully"},{status:200})
+       
     } catch (error) {
         console.log(error)
         return NextResponse.json({message:"Error"},{status:500})
