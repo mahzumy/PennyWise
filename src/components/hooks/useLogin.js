@@ -28,14 +28,12 @@ export const useLogin = () => {
             
         })
         toast.remove();
-        const data = await res.json();
 
         if(!res.ok){
             toast.error("Login Error")
             setLoginData({ email: "", password: "" });
         } else{
             toast.success("Login Successful");
-            Cookies.set("token", data.token);
             router.push("/dashboard");
         }
 

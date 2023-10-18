@@ -32,10 +32,12 @@ export async function POST(req){
             email: findUser.email
         }
         const token = sign(payLoad, process.env.SECRET_KEY, {expiresIn: "7d"});
-        return NextResponse.json({data:payLoad, token, message:"User Login Succesfully"},{status:200})
+        const res = NextResponse.json({token, data:payLoad, message:"User Login Succesfully"},{status:201})
+        res.cookies.set("token", token);
        
+        return res;
     } catch (error) {
-        console.log(error)
+        //console.log(error)
         return NextResponse.json({message:"Error"},{status:500})
     }
 }
