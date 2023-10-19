@@ -18,7 +18,7 @@ export const Header = () => {
 
   return (
     <div>
-        <header className="flex align-middle bg-[#1d4ed8]">
+        <header className="flex justify-between align-middle bg-[#1d4ed8]">
           <div onMouseEnter={handleMouseEnter} onMouseLeave = {handleMouseLeave}>
             <button className='m-1 hover:bg-[#bfdbfe] rounded'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
