@@ -34,64 +34,45 @@ export const Dashboard = ({transactionData}) => {
     
   return (
     <div className='w-[450px] justify-center items-center m-auto h-screen'>
-      <div className=' py-4 mb-2 text-2xl text-center font-semibold tracking-tight text-gray-900 dark:text-white'>Dashboard</div>
-      <div className=' space-y-5'>
-        <div className='grid justify-items-end'>
-          <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
-        </div>
-        <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-          <div className='flex justify-between'>
-            <div className='mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white'>Balance :</div>
-            <div className='mb-2 text-md tracking-tight text-gray-400 dark:text-white'>More...</div>
-          </div>
-          <hr className='p-2' />
-          <div className='className= mb-2 text-l tracking-tight text-gray-400 dark:text-white'>
-            TODAY
-          </div>
-          <div className='mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white'>
-            {numBalance}
-          </div>
-        </div>
-        <div className='w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700'>
-          <div className='flex justify-between'>
-            <div className='mb-2 text-2xl font-semibold tracking-tight  text-gray-900 dark:text-white'>Last Transaction</div>
-            <div className='mb-2 text-md tracking-tight text-gray-400 dark:text-white'>More...</div>
-          </div>
-          <div>
+      <div className='text-xl my-4 text-center'>Dashboard</div>
+      <div>
+        <button className='border-2 border-black rounded-md' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
+      </div>
+      <div>
+        <div>Balance : {numBalance}</div>
+        
+      </div>
+      <div>
           {transactionData.map(({id, title, type, category, date, amount}) => {
-              if(type !== "income"){
-                return(
-                  <div key={id} className='p-2 my-2 rounded-md px-3'>
-                    <hr className='py-2' />
-                    <div className='flex justify-between'>
-                      <div className='mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{category}</div>
-                      <div className='text-lg font-medium text-red-500'>- { newAmount(amount)}</div>
-                    </div>
-                    <div className='flex justify-between'> 
-                      <div className='mb-2 text-md tracking-tight text-gray-500 dark:text-white'>{title}</div>
-                      <div className='mb-2 text-md tracking-tight text-gray-500 dark:text-white'>{date}</div>
-                    </div>
-                  </div>
-                )
-              }
-
+            if(type !== "income"){
               return(
-                <div key={id} className='p-2 my-2 rounded-md px-3'>
-                  <hr className='py-2' />
-                  <div className='flex justify-between'>
-                    <div className='mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{category}</div>
-                    <div className='text-lg font-medium text-green-500'>+{ newAmount(amount)}</div>
+                <div key={id} className='flex justify-between p-2 my-2 border-2 border-gray-300 rounded-md'>
+                  <div>
+                    <div>{category}</div>
+                    <div>{title}</div>
                   </div>
-                  <div className='flex justify-between'> 
-                    <div className='mb-2 text-md tracking-tight text-gray-500 dark:text-white'>{title}</div>
-                    <div className='mb-2 text-md tracking-tight text-gray-500 dark:text-white'>{date}</div>
+                  <div className='text-right'> 
+                    <div className='text-red-500'>- { newAmount(amount)}</div>
+                    <div>{date}</div>
                   </div>
                 </div>
               )
-              
-            })}
-          </div>
-        </div>
+            }
+
+            return(
+              <div key={id} className='flex justify-between p-2 my-2 border-2 border-gray-300 rounded-md'>
+                <div>
+                  <div>{category}</div>
+                  <div>{title}</div>
+                </div>
+                <div className='text-right'> 
+                  <div className='text-green-500'>+{ newAmount(amount)}</div>
+                  <div>{date}</div>
+                </div>
+              </div>
+            )
+            
+          })}
       </div>
     </div>
   )
