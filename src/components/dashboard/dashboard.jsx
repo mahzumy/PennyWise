@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import Image from 'next/image';
 
 export const Dashboard = ({transactionData}) => {
     const router = useRouter();
@@ -34,10 +35,13 @@ export const Dashboard = ({transactionData}) => {
     
   return (
     <div className='w-[450px] justify-center items-center m-auto h-screen'>
-      <div className=' py-4 mb-2 text-2xl text-center font-semibold tracking-tight text-gray-900 dark:text-white'>Dashboard</div>
       <div className=' space-y-5'>
-        <div className='grid justify-items-end'>
-          <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
+        <div className='my-5 flex justify-center bg-blue-100 rounded-lg py-16'>
+          <img src="/asset/pennywise-dummy-logo.png" width={160} alt="logo-pennywise" />
+        </div>
+        <div className='flex justify-between my-2 items-center'>
+          <div className=' py-4 mb-2 text-3xl text-center font-semibold tracking-tight text-gray-900 dark:text-white'>Dashboard</div>
+          <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 h-fit dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
         </div>
         <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <div className='flex justify-between'>
