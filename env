@@ -1,4 +1,4 @@
-// .env
+//git  .env
 DATABASE_URL=postgres://mahzumy:ahRgb1ziYly0@ep-morning-unit-19648476-pooler.ap-southeast-1.aws.neon.tech/PennyWise?pgbouncer=true&connect_timeout=10
 DIRECT_URL=postgres://mahzumy:ahRgb1ziYly0@ep-morning-unit-19648476.ap-southeast-1.aws.neon.tech/PennyWise?connect_timeout=10
 # SHADOW_DATABASE_URL=...
