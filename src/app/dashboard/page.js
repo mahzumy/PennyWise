@@ -1,7 +1,20 @@
 import React from 'react'
+import { Dashboard } from '@/components/dashboard/dashboard';
 
-export default function Dashboard() {
+async function getTransaction() {
+  const res = await fetch("http://localhost:3000/api/v1/transaction", {
+      cache: "no-cache",
+    });
+  const data = await res.json();
+  return data;
+}
+
+
+export default async function Page() {
+  const { data } = await getTransaction();
   return (
-    <div>Dashboard</div>
+    <div> 
+      <Dashboard transactionData={data}/>
+    </div>  
   )
 }

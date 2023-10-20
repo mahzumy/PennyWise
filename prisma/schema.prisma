@@ -29,6 +29,7 @@ model TransactionData {
   title    String
   type     String
   category String
+  date     String
   amount   Int
   notes    String?
   userId   String
