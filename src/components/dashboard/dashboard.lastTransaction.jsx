@@ -1,9 +1,8 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import Image from 'next/image';
 
-export const Dashboard = ({transactionData}) => {
+export const DashboardLastTransaction = ({transactionData}) => {
     const router = useRouter();
     let balance=0;
     
@@ -34,28 +33,6 @@ export const Dashboard = ({transactionData}) => {
 
     
   return (
-    <div className='w-[450px] justify-center items-center m-auto h-screen'>
-      <div className=' space-y-5'>
-        <div className='my-5 flex justify-center bg-blue-100 rounded-lg py-16'>
-          <img src="/asset/pennywise-dummy-logo.png" width={160} alt="logo-pennywise" />
-        </div>
-        <div className='flex justify-between my-2 items-center mx-2'>
-          <div className=' py-4 mb-2 text-3xl text-center font-semibold tracking-tight text-gray-900 dark:text-white'>Dashboard</div>
-          <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 h-fit dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
-        </div>
-        <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-          <div className='flex justify-between'>
-            <div className='mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white'>Balance :</div>
-            <div className='mb-2 text-md tracking-tight text-gray-400 dark:text-white'>More...</div>
-          </div>
-          <hr className='p-2' />
-          <div className='className= mb-2 text-l tracking-tight text-gray-400 dark:text-white'>
-            TODAY
-          </div>
-          <div className='mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white'>
-            {numBalance}
-          </div>
-        </div>
         <div className='w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700'>
           <div className='flex justify-between'>
             <div className='mb-2 text-2xl font-semibold tracking-tight  text-gray-900 dark:text-white'>Last Transaction</div>
@@ -96,8 +73,6 @@ export const Dashboard = ({transactionData}) => {
             })}
           </div>
         </div>
-      </div>
-    </div>
   )
 }
 
