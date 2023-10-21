@@ -65,7 +65,7 @@ export const Dashboard = ({transactionData}) => {
           {transactionData.map(({id, title, type, category, date, amount}) => {
               if(type !== "income"){
                 return(
-                  <div key={id} className='p-2 my-2 rounded-md px-3'>
+                  <div key={id} className='p-2 my-2 rounded-md px-3 cursor-pointer' onClick={()=>router.push(`/dashboard/detail/${id}`)}>
                     <hr className='py-2' />
                     <div className='flex justify-between'>
                       <div className='mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{category}</div>
@@ -80,7 +80,7 @@ export const Dashboard = ({transactionData}) => {
               }
 
               return(
-                <div key={id} className='p-2 my-2 rounded-md px-3'>
+                <div key={id} className='p-2 my-2 rounded-md px-3 cursor-pointer' onClick={()=>router.push(`/dashboard/detail/${id}`)}>
                   <hr className='py-2' />
                   <div className='flex justify-between'>
                     <div className='mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{category}</div>

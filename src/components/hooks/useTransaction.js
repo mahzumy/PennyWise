@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useTransaction = () => {
+    const router = useRouter();
+
     const [trans, setTrans] = useState({
         title: "",
         type: "",
@@ -28,9 +31,7 @@ export const useTransaction = () => {
                 body: JSON.stringify({ title, type, category, date, amount, notes }),
             }
         );
-        setTrans({ title:"", type:"", category:"", date, amount:0, notes:"" })
-        const data = res.json()
-        console.log(data)
+        router.push('/dashboard')
       }
 
 
