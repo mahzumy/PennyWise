@@ -34,6 +34,7 @@ export const useDetail = ({transaction}) => {
             }
         );
         setTrans({ title:"", type:"", category:"",date:"", amount:0, notes:"" })
+        router.refresh()
         router.push('/dashboard')
       }
 
@@ -46,6 +47,7 @@ export const useDetail = ({transaction}) => {
                 },
             }
         )
+        router.refresh()
         router.push('/dashboard')
       }
       
