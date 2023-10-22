@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { useTransaction } from '@/components/hooks/useTransaction';
+import { Option } from './option';
 
 export const TransactionInput = () => {
   const {trans, handleChange, handleAddTransaction} = useTransaction();
@@ -14,13 +15,14 @@ export const TransactionInput = () => {
                     <label className='w-full'>Title</label>
                     <input value={trans.title} name='title' type='text' placeholder='Title' className='w-full border-2' onChange={handleChange}/>
                 </div>
-                <div >
+                {/* <div >
                     <label className='w-full'>Type</label>
                     <input value={trans.type} name='type' type='text' placeholder='Type' className='w-full border-2' onChange={handleChange}/>
-                </div>
+                </div> */}
                 <div >
                     <label className='w-full'>Category</label>
-                    <input value={trans.category} name='category' type='text' placeholder='Category' className='w-full border-2' onChange={handleChange}/>
+                    {/* <input value={trans.category} name='category' type='text' placeholder='Category' className='w-full border-2' onChange={handleChange}/> */}
+                    <Option trans={trans} />
                 </div>
                 <div >
                     <label className='w-full'>Date</label>

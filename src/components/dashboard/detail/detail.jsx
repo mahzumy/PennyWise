@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
 import { useDetail } from '@/components/hooks/useDetail';
-import { useEffect } from 'react';
+import { Option } from './option';
 
 export const Detail = ({transaction}) => {
     const {trans, handleChange, handleUpadteTransaction, handleDelete} = useDetail({transaction});
-    
+
     return ( 
     //<div>Update</div>
     <div className='w-[450px] justify-center items-center m-auto h-screen space-y-2 mb-10'>
@@ -23,13 +23,14 @@ export const Detail = ({transaction}) => {
                         <label className='w-full'>Title</label>
                         <input value={trans.title} name='title' type='text' placeholder='Title' className='w-full border-2' onChange={handleChange}/>
                     </div>
-                    <div >
+                    {/* <div >
                         <label className='w-full'>Type</label>
                         <input value={trans.type} name='type' type='text' placeholder='Type' className='w-full border-2' onChange={handleChange}/>
-                    </div>
+                    </div> */}
                     <div >
                         <label className='w-full'>Category</label>
-                        <input value={trans.category} name='category' type='text' placeholder='Category' className='w-full border-2' onChange={handleChange}/>
+                        {/* <input value={trans.category} name='category' type='text' placeholder='Category' className='w-full border-2' onChange={handleChange}/> */}
+                        <Option trans={trans} />
                     </div>
                     <div >
                         <label className='w-full'>Date</label>
