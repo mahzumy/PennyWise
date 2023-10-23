@@ -31,6 +31,7 @@ export const useTransaction = () => {
                 body: JSON.stringify({ title, type, category, date, amount, notes }),
             }
         );
+        router.refresh();
         router.push('/dashboard')
       }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Dashboard } from '@/components/dashboard/dashboard';
 
 async function getTransaction() {
-  const res = await fetch("http://localhost:3000/api/v1/transaction", {
+  const res = await fetch("http://localhost:3000/api/v1/transaction?limit=3", {
       cache: "no-cache",
     });
   const data = await res.json();
