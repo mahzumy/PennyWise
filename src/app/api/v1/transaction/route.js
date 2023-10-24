@@ -24,7 +24,7 @@ export async function GET(req) {
           }
         ] 
       })
-      return NextResponse.json({data: limitTrans ,message:"Limited Transaction"},{status: 200})
+      return NextResponse.json({limit: limitTrans ,message:"Limited Transaction"},{status: 200})
     }
 
     const allTrans = await prisma.transactionData.findMany({
