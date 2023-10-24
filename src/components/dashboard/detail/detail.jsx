@@ -32,13 +32,8 @@ export const Detail = ({transaction}) => {
                         <label className='w-full'>Title</label>
                         <input value={trans.title} name='title' type='text' placeholder='Title' className='w-full border-2' onChange={handleChange}/>
                     </div>
-                    {/* <div >
-                        <label className='w-full'>Type</label>
-                        <input value={trans.type} name='type' type='text' placeholder='Type' className='w-full border-2' onChange={handleChange}/>
-                    </div> */}
                     <div >
                         <label className='w-full'>Category</label>
-                        {/* <input value={trans.category} name='category' type='text' placeholder='Category' className='w-full border-2' onChange={handleChange}/> */}
                         <Option trans={trans} />
                     </div>
                     <div >
@@ -47,7 +42,7 @@ export const Detail = ({transaction}) => {
                     </div>
                     <div >
                         <label className='w-full'>Amount</label>
-                        <input value={trans.amount} name='amount' type='number' placeholder='Amount' className='w-full border-2' onChange={handleChange}/>
+                        <input value={trans.amount} name='amount' type='number' step="any" placeholder='Amount' className='w-full border-2' onChange={handleChange}/>
                     </div>
                     <div >
                         <label className='w-full'>Note</label>
