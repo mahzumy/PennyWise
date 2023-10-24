@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from 'react-hot-toast'
+import { API_URL } from '@/config/apiUrl';
 
 export const useRegister = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ export const useRegister = () => {
     const { name, email, password, retypePassword } = registerData;
 
     if(password === retypePassword){
-      const res = await fetch("http://localhost:3000/api/v1/register",
+      const res = await fetch(`${API_URL}/register`,
         {
           method: "POST",
           headers: {
