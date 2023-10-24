@@ -34,7 +34,7 @@ export const Dashboard = ({transactionData}) => {
 
     
   return (
-    <div className='w-[450px] justify-center items-center m-auto h-screen'>
+    <div className='w-[450px] justify-center items-center m-auto mb-5'>
       <div className=' space-y-5'>
         <div className='my-5 flex justify-center bg-blue-100 rounded-lg py-16'>
           <img src="/asset/pennywise-dummy-logo.png" width={160} alt="logo-pennywise" />
