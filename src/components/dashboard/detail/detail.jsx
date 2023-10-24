@@ -3,6 +3,7 @@ import React from 'react'
 import { useDetail } from '@/components/hooks/useDetail';
 import { Option } from './option';
 import { useRouter } from 'next/navigation';
+import { DashboardHeader } from '../dashboard.header';
 
 export const Detail = ({transaction}) => {
     const {trans, handleChange, handleUpadteTransaction, handleDelete} = useDetail({transaction});
@@ -11,11 +12,7 @@ export const Detail = ({transaction}) => {
     return ( 
     //<div>Update</div>
     <div className='w-[450px] justify-center items-center m-auto h-screen space-y-2 mb-10'>
-        <div className='w-[450px] justify-center items-center m-auto'>
-            <div className='my-5 flex justify-center bg-blue-100 rounded-lg py-16 w-full'>
-                <img src="/asset/pennywise-dummy-logo.png" width={160} alt="logo-pennywise" />
-            </div>
-        </div>
+        <DashboardHeader />
         <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
             <div className='p-6 space-y-4 md:space-y-8 sm:p-8'>
                 <div className='flex space-x-1 cursor-pointer' onClick={()=>router.push(`/dashboard`)}>
