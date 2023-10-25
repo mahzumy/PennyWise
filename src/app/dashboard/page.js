@@ -4,7 +4,7 @@ import { API_URL } from '@/config/apiUrl';
 
 async function getTransaction() {
   const res = await fetch(`${API_URL}/transaction`, {
-      cache: "no-cache",
+      cache: 'force-cache',
     });
   const data = await res.json();
   return data;
@@ -12,19 +12,21 @@ async function getTransaction() {
 
 async function getLimit() {
   const res = await fetch(`${API_URL}/transaction?limit=3`, {
-      cache: "no-cache",
+      cache: 'force-cache',
     });
   const data = await res.json();
   return data;
 }
 
 export default async function Page() {
-  const { data } = await getTransaction();
-  const { limit } = await getLimit();
+  // const { data } = await getTransaction();
+  // const { limit } = await getLimit();
+  // console.log(data)
+  // console.log(limit)
   
   return (
     <div> 
-      <Dashboard transactionData={data} limit={limit}/>
+      {/* <Dashboard transactionData={data} limit={limit}/> */}
     </div>  
   )
 }
