@@ -30,7 +30,7 @@ export const Alltransactions = ({transactionData}) => {
   } 
 
   return (
-     <div className='w-[450px] justify-center items-center m-auto'>
+     <div className='w-[450px] justify-center items-center m-auto space-y-2'>
       <DashboardHeader />
       <div className='w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 mb-4 space-y-5'>
         <div className='flex space-x-1 cursor-pointer' onClick={()=>router.push(`/dashboard`)}>
