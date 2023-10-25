@@ -35,7 +35,8 @@ export async function GET(req) {
       ] 
     });
     return NextResponse.json({data: allTrans ,message:"All Transactions"},{status: 200})
-  } catch (error) {
+  } 
+  catch (error) {
     return NextResponse.json({message:"Error"},{status:500})
   }
 }
