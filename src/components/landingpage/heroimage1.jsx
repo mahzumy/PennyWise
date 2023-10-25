@@ -17,7 +17,7 @@ export const HeroImage1 = () => {
                     </a> 
                 </div>
                 <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src="asset/mockup-hero.png" alt="mockup" />
+                    <img src="asset/mockup-hero-2.png" alt="mockup" />
                 </div>                
             </div>
             </section>
