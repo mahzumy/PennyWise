@@ -53,7 +53,7 @@ export const Alltransactions = ({transactionData}) => {
         </div>
         
         <div>
-            {data.map(({id, title, type, category, date, amount}) => {
+            {data?.map(({id, title, type, category, date, amount}) => {
                 if(type !== "income"){
                   return(
                     <div key={id} className='p-2 my-2 rounded-md px-3 cursor-pointer' onClick={()=>router.push(`/dashboard/detail/${id}`)}>

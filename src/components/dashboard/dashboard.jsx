@@ -7,12 +7,10 @@ export const Dashboard = ({transactionData, limit}) => {
     const router = useRouter();
     let balance=0, i=0;
     
-    transactionData.map(({amount, type}) => {
+    transactionData?.map(({amount, type}) => {
       if(type === "income"){
-      
         balance += amount;
       } else {
-        
         balance -= amount;
       }    
     })
@@ -62,7 +60,7 @@ export const Dashboard = ({transactionData, limit}) => {
             <div className='mb-2 text-md tracking-tight text-gray-400 dark:text-white cursor-pointer' onClick={()=>router.push('/dashboard/alltransactions')}>More...</div>
           </div>
           <div>
-          {limit.map(({id, title, type, category, date, amount}) => {
+          {limit?.map(({id, title, type, category, date, amount}) => {
               if(type !== "income"){
                 return(
                   <div key={id} className='p-2 my-2 rounded-md px-3 cursor-pointer' onClick={()=>router.push(`/dashboard/detail/${id}`)}>
