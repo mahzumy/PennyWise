@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import toast from 'react-hot-toast'
+import { API_URL } from '@/config/apiUrl'
 
 export const useLogin = () => {
     const router = useRouter();
@@ -19,7 +20,7 @@ export const useLogin = () => {
     const handleSubmitLogin = async () => {
         toast.loading("try to log in...");
         const { email, password } = loginData
-        const res = await fetch("http://localhost:3000/api/v1/login", {
+        const res = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

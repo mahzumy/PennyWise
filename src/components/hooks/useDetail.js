@@ -2,6 +2,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { API_URL } from '@/config/apiUrl';
 
 export const useDetail = ({transaction}) => {
     const { id, title, type, category, date, amount, notes} = transaction;
@@ -24,7 +25,7 @@ export const useDetail = ({transaction}) => {
       const handleUpadteTransaction = async () => {
         const { title, type, category, date, amount, notes } = trans;
         
-        const res = await fetch(`http://localhost:3000/api/v1/transaction?id=${id}`, 
+        const res = await fetch(`${API_URL}/transaction?id=${id}`, 
             {
                 method: "PATCH",
                 headers: {
@@ -34,11 +35,12 @@ export const useDetail = ({transaction}) => {
             }
         );
         setTrans({ title:"", type:"", category:"",date:"", amount:0, notes:"" })
+        router.refresh()
         router.push('/dashboard')
       }
 
       const handleDelete = async () => {
-        await fetch(`http://localhost:3000/api/v1/transaction?id=${id}`,
+        await fetch(`${API_URL}/transaction?id=${id}`,
             {
                 method: "DELETE",
                 headers: {
@@ -46,6 +48,7 @@ export const useDetail = ({transaction}) => {
                 },
             }
         )
+        router.refresh()
         router.push('/dashboard')
       }
       

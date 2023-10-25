@@ -1,8 +1,9 @@
 import React from 'react'
 import { Detail } from '@/components/dashboard/detail/detail';
+import { API_URL } from '@/config/apiUrl';
 
 async function getSingleTransaction(id){
-  const res = await fetch(`http://localhost:3000/api/v1/transaction?id=${id}`,{
+  const res = await fetch(`${API_URL}/transaction?id=${id}`,{
     cache: "no-cache",
   });
   const data = await res.json();

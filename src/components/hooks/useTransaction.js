@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { API_URL } from '@/config/apiUrl';
 
 export const useTransaction = () => {
     const router = useRouter();
@@ -22,7 +23,7 @@ export const useTransaction = () => {
     const handleAddTransaction = async () => {
         const { title, type, category, date, amount, notes } = trans;
        
-        const res = await fetch("http://localhost:3000/api/v1/transaction", 
+        const res = await fetch(`${API_URL}/transaction`, 
             {
                 method: "POST",
                 headers: {
@@ -31,6 +32,7 @@ export const useTransaction = () => {
                 body: JSON.stringify({ title, type, category, date, amount, notes }),
             }
         );
+        router.refresh();
         router.push('/dashboard')
       }
 

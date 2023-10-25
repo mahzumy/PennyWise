@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.get("id");
-  
+  const limit = searchParams.get("limit");
+    
   try {
     if(id){
       const singleTras = await prisma.transactionData.findMany({
@@ -13,11 +14,29 @@ export async function GET(req) {
         }
       })
       return NextResponse.json({data: singleTras ,message:"Single Transaction"},{status: 200})
+     } 
+    else if(limit){
+      const limitTrans = await prisma.transactionData.findMany({
+        take: Number(limit),
+        orderBy:[
+          {
+            date: 'desc'
+          }
+        ] 
+      })
+      return NextResponse.json({limit: limitTrans ,message:"Limited Transaction"},{status: 200})
     }
 
-    const allTrans = await prisma.transactionData.findMany();
+    const allTrans = await prisma.transactionData.findMany({
+      orderBy:[
+        {
+          date: 'desc'
+        }
+      ] 
+    });
     return NextResponse.json({data: allTrans ,message:"All Transactions"},{status: 200})
-  } catch (error) {
+  } 
+  catch (error) {
     return NextResponse.json({message:"Error"},{status:500})
   }
 }
