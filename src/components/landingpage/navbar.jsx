@@ -8,7 +8,10 @@ export const NavBar = () => {
                 <a href="/" className='flex items-center'>
                     <img src="/asset/pennywise-dummy-logo.png" height={15} className='h-8 mr-3' alt="Pennywise Logo" />
                 </a>
-                <div class="flex md:order-2">
+                <div class="flex space-x-2 md:order-2">
+                    <a href="/login">
+                        <button type="button" className='text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Login</button>
+                    </a>
                     <a href="/register">
                         <button type="button" className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Get started</button>
                     </a>
