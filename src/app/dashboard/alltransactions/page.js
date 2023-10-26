@@ -14,7 +14,6 @@ async function getTransaction() {
 
 export default async function page() {
     const { data } = await getTransaction();
-
   return (
     <Alltransactions transactionData={data}/>
   )
