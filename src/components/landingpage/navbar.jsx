@@ -3,6 +3,11 @@ import React from 'react'
 export const NavBar = () => {
   return (
         <nav className='bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600'>
+            <div className='bg-blue-600 text-green-300 w-full flex m-auto justify-center pt-3 pb-2'>
+                <div className=''>
+                Join our Limited Beta Product ---<a href="#" className=' underline font-semibold'> See Now</a>
+                </div>
+            </div>
             <div className=' sm:max-w-lg md:max-w-screen-xl flex items-center justify-between mx-auto p-4'>
                 <div>
                     <a href="/" className='flex items-center'>
