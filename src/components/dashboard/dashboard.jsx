@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 
 import {
@@ -14,60 +14,7 @@ import {
   TabPanel,
 } from "@tremor/react";
 
-const data = [
-  {
-    Month: "Jan 17",
-    Spending: 75000,
-  },
-  //...
-  {
-    Month: "Jan 18",
-    Spending: 105000,
-  },
-  {
-    Month: "Jan 19",
-    Spending: 45000,
-  },
-  {
-    Month: "Jan 20",
-    Spending: 95000,
-  },
-  {
-    Month: "Jan 21",
-    Spending: 205000,
-  },
-  {
-    Month: "Jan 22",
-    Spending: 175000,
-  },
-  {
-    Month: "Jan 23",
-    Spending: 130000,
-  },
-  {
-    Month: "Jan 24",
-    Spending: 65000,
-  },
-  {
-    Month: "Jan 25",
-    Spending: 45000,
-  },
-  {
-    Month: "Jan 26",
-    Spending: 90000,
-  },
-  {
-    Month: "Jan 27",
-    Spending: 40000,
-  },
-];
-
 const numberFormatter = (value) => Intl.NumberFormat("us").format(value).toString();
-
-const percentageFormatter = (value) =>
-  `${Intl.NumberFormat("us")
-    .format(value * 100)
-    .toString()}%`;
     
 function sumArray(array, metric) {
   return array.reduce((accumulator, currentValue) => accumulator + currentValue[metric], 0);
@@ -102,7 +49,21 @@ export const Dashboard = ({transactionData, limit}) => {
       return numAmount;
     };
 
+    const incomeGraph = transactionData?.filter((item)=> item.type === "income")?.map(item => ({
+      date: item.date,
+      Income: item.amount
+    }))
 
+    const expenseGraph = transactionData?.filter((item)=> item.type === "expense")?.map(item => ({
+      date: item.date,
+      Expense: item.amount
+    }))
+    
+    
+    // const graph = transactionData.map(item => ({
+    //   date: item.createdAt,
+    //   amount: item.amount
+    // }))
     
   return (
     <div className='w-[450px] justify-center items-center m-auto mb-5 space-y-2'>
@@ -169,9 +130,9 @@ export const Dashboard = ({transactionData, limit}) => {
             <TabGroup>
               <TabList>
                 <Tab className="p-4 sm:p-6 text-left">
-                  <p className="text-md sm:text-base  text-gray-900 dark:text-white">Spending</p>
+                  <p className="text-md sm:text-base  text-gray-900 dark:text-white">Income</p>
                   <Metric className="mt-2 text-inherit text-red-500 dark:text-red-400">
-                    {numberFormatter(sumArray(data, "Spending"))}
+                    {numberFormatter(sumArray(incomeGraph, "Income"))}
                   </Metric>
                 </Tab>
               </TabList>
@@ -179,9 +140,36 @@ export const Dashboard = ({transactionData, limit}) => {
                 <TabPanel className="p-6">
                   <AreaChart
                     className="h-80 mt-10"
-                    data={data}
-                    index="Month"
-                    categories={["Spending"]}
+                    data={incomeGraph}
+                    index="date"
+                    categories={["Income"]}
+                    colors={["green"]}
+                    valueFormatter={numberFormatter}
+                    showLegend={false}
+                    yAxisWidth={50}
+                  />
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
+          </Card>
+
+          <Card className="p-0">
+            <TabGroup>
+              <TabList>
+                <Tab className="p-4 sm:p-6 text-left">
+                  <p className="text-md sm:text-base  text-gray-900 dark:text-white">Expense</p>
+                  <Metric className="mt-2 text-inherit text-red-500 dark:text-red-400">
+                    {numberFormatter(sumArray(expenseGraph, "Expense"))}
+                  </Metric>
+                </Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel className="p-6">
+                  <AreaChart
+                    className="h-80 mt-10"
+                    data={expenseGraph}
+                    index="date"
+                    categories={["Expense"]}
                     colors={["red"]}
                     valueFormatter={numberFormatter}
                     showLegend={false}
