@@ -3,8 +3,8 @@ import React from 'react'
 export const HeroImage1 = () => {
   return (
     <div className='pt-8'>
-        <section class="bg-white dark:bg-gray-900">
-            <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 space-y-4">
+        <section class="bg-white dark:bg-gray-900 pt-10 sm:pt60">
+            <div className='grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 space-y-20'>
                 <div class="mr-auto place-self-center lg:col-span-7">
                     <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Being <span class="text-blue-600 dark:text-blue-500">wise</span> for every <span class="text-blue-600 dark:text-blue-500">penny.</span></h1>
                     <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Cultivate financial wisdom with Pennywise: Track, save, and budget wisely – every penny counts on your path to prosperity!</p>
