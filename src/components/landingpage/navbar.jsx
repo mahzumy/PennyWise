@@ -2,18 +2,17 @@ import React from 'react'
 
 export const NavBar = () => {
   return (
-    <div>
         <nav className='bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600'>
-            <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
+            <div className=' sm:max-w-lg md:max-w-screen-xl flex items-center justify-between mx-auto p-4'>
                 <a href="/" className='flex items-center'>
-                    <img src="/asset/pennywise-dummy-logo.png" height={15} className='h-8 mr-3' alt="Pennywise Logo" />
+                    <img src="/asset/pennywise-dummy-logo.png" className='h-4 md:h-8 mr-2' alt="Pennywise Logo" />
                 </a>
                 <div class="flex space-x-2 md:order-2">
-                    <a href="/login">
+                    <a className='invisible md:visible' href="/login">
                         <button type="button" className='text-blue-600 hover:text-white border border-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Login</button>
                     </a>
                     <a href="/register">
-                        <button type="button" className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Get started</button>
+                        <button type="button" className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Get started</button>
                     </a>
                     <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -37,6 +36,5 @@ export const NavBar = () => {
                     </div>
             </div>
         </nav>
-    </div>
   )
 }
