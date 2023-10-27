@@ -2,7 +2,7 @@ import React from 'react'
 
 export const VideoSection = () => {
   return (
-    <div className='bg-blue-600 py-20'>
+    <div className='bg-blue-600 py-20 -my-8 md:my-0'>
         <div className=' bg-blue-600 max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 space-y-20'>
             <div className=' text-white tracking-normal'>
                 <h2 className=' text-3xl md:text-4xl xl:text-5xl w-3/4'>Designed with the needs of individuals seeking fast transactions in mind.</h2>
