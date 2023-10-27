@@ -10,7 +10,7 @@ import { HomeFooter } from '@/components/landingpage/homefooter'
 
 export default function Home() {
   return (
-   <div className='bg-white'>
+   <div className=' bg-white'>
     <AnnouncementBar />
     <NavBar />
     <HeroImage1 />
