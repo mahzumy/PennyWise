@@ -11,10 +11,10 @@ export const Detail = ({transaction}) => {
 
     return ( 
     //<div>Update</div>
-    <div className='w-[450px] justify-center items-center m-auto h-screen space-y-2 mb-10'>
+    <div className='w-[450px] justify-center items-center m-auto h-screen mb-10'>
         <DashboardHeader />
-        <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
-            <div className='p-6 space-y-4 md:space-y-8 sm:p-8'>
+        <div className='w-full bg-white md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 px-5'>
+            <div className='p-10 space-y-4 md:space-y-8 sm:p-10'>
                 <div className='flex space-x-1 cursor-pointer' onClick={()=>router.push(`/dashboard`)}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7 stroke-blue-600">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />

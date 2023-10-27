@@ -66,9 +66,9 @@ export const Dashboard = ({transactionData, limit}) => {
     // }))
     
   return (
-    <div className='w-[450px] justify-center items-center m-auto mb-5 space-y-2'>
+    <div className='w-[450px] justify-center items-center m-auto mb-5'>
       <DashboardHeader />
-      <div className=' w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 mb-4 space-y-5'>
+      <div className=' w-full p-6 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 mb-4 space-y-5'>
         <div className='flex justify-between my-2 items-center mx-2'>
           <div className=' py-4 mb-2 text-3xl text-center font-semibold tracking-tight text-gray-900 dark:text-white'>Dashboard</div>
           <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 h-fit dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' onClick={() => router.push('/dashboard/transaction')}>Tambah</button>
@@ -125,60 +125,60 @@ export const Dashboard = ({transactionData, limit}) => {
             })}
           </div>
         </div>
-        <div className='w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700'>
-        <Card className="p-0">
-            <TabGroup>
-              <TabList>
-                <Tab className="p-4 sm:p-6 text-left">
-                  <p className="text-md sm:text-base  text-gray-900 dark:text-white">Income</p>
-                  <Metric className="mt-2 text-inherit text-red-500 dark:text-red-400">
-                    {numberFormatter(sumArray(incomeGraph, "Income"))}
-                  </Metric>
-                </Tab>
-              </TabList>
-              <TabPanels>
-                <TabPanel className="p-6">
-                  <AreaChart
-                    className="h-80 mt-10"
-                    data={incomeGraph}
-                    index="date"
-                    categories={["Income"]}
-                    colors={["green"]}
-                    valueFormatter={numberFormatter}
-                    showLegend={false}
-                    yAxisWidth={50}
-                  />
-                </TabPanel>
-              </TabPanels>
-            </TabGroup>
-          </Card>
-
+        <div className='w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 space-y-5'>
           <Card className="p-0">
-            <TabGroup>
-              <TabList>
-                <Tab className="p-4 sm:p-6 text-left">
-                  <p className="text-md sm:text-base  text-gray-900 dark:text-white">Expense</p>
-                  <Metric className="mt-2 text-inherit text-red-500 dark:text-red-400">
-                    {numberFormatter(sumArray(expenseGraph, "Expense"))}
-                  </Metric>
-                </Tab>
-              </TabList>
-              <TabPanels>
-                <TabPanel className="p-6">
-                  <AreaChart
-                    className="h-80 mt-10"
-                    data={expenseGraph}
-                    index="date"
-                    categories={["Expense"]}
-                    colors={["red"]}
-                    valueFormatter={numberFormatter}
-                    showLegend={false}
-                    yAxisWidth={50}
-                  />
-                </TabPanel>
-              </TabPanels>
-            </TabGroup>
-          </Card>
+              <TabGroup>
+                <TabList>
+                  <Tab className="p-4 sm:p-6 text-left">
+                    <p className="text-lg font-base tracking-tight text-gray-600 dark:text-white">Income</p>
+                    <Metric className="mt-2 text-inherit text-green-600 dark:text-green-400">
+                      {numberFormatter(sumArray(incomeGraph, "Income"))}
+                    </Metric>
+                  </Tab>
+                </TabList>
+                <TabPanels>
+                  <TabPanel className="p-6">
+                    <AreaChart
+                      className="h-80 mt-10"
+                      data={incomeGraph}
+                      index="date"
+                      categories={["Income"]}
+                      colors={["green"]}
+                      valueFormatter={numberFormatter}
+                      showLegend={false}
+                      yAxisWidth={50}
+                    />
+                  </TabPanel>
+                </TabPanels>
+              </TabGroup>
+            </Card>
+
+            <Card className="p-0">
+              <TabGroup>
+                <TabList>
+                  <Tab className="p-4 sm:p-6 text-left">
+                    <p className="text-lg font-base tracking-tight  text-gray-600 dark:text-white">Expense</p>
+                    <Metric className="mt-2 text-inherit text-red-500 dark:text-red-400">
+                      {numberFormatter(sumArray(expenseGraph, "Expense"))}
+                    </Metric>
+                  </Tab>
+                </TabList>
+                <TabPanels>
+                  <TabPanel className="p-6">
+                    <AreaChart
+                      className="h-80 mt-10"
+                      data={expenseGraph}
+                      index="date"
+                      categories={["Expense"]}
+                      colors={["red"]}
+                      valueFormatter={numberFormatter}
+                      showLegend={false}
+                      yAxisWidth={50}
+                    />
+                  </TabPanel>
+                </TabPanels>
+              </TabGroup>
+            </Card>
           </div>
       </div>
     </div>
