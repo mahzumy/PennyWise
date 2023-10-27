@@ -2,7 +2,7 @@ import React from 'react'
 
 export const MiniFeatures = () => {
   return (
-    <div className='py-20'>
+    <div className='pt-20 pb-2'>
         <div className=' flex max-w-screen-xl px-4 py-8 gap lg:gap-8 xl:gap-0 lg:py-16 mx-auto'>
             <div className='sm:inline-block md:flex w-screen'>
                 <div className=' items-center px-10 pb-24 sm:border-b border-blue-600 w-fit space-y-4'>
