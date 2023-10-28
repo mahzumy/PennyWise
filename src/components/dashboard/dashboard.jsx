@@ -22,7 +22,7 @@ function sumArray(array, metric) {
 
 import { DashboardHeader } from './dashboard.header';
 
-export const Dashboard = ({transactionData, limit}) => {
+export const Dashboard = ({transactionData}) => {
     const router = useRouter();
     let balance=0, i=0;
     
@@ -49,12 +49,12 @@ export const Dashboard = ({transactionData, limit}) => {
       return numAmount;
     };
 
-    const incomeGraph = transactionData?.filter((item)=> item.type === "income")?.map(item => ({
+    const incomeGraph = transactionData.filter((item)=> item.type === "income").map(item => ({
       date: item.date,
       Income: item.amount
     }))
 
-    const expenseGraph = transactionData?.filter((item)=> item.type === "expense")?.map(item => ({
+    const expenseGraph = transactionData.filter((item)=> item.type === "expense").map(item => ({
       date: item.date,
       Expense: item.amount
     }))
@@ -92,7 +92,9 @@ export const Dashboard = ({transactionData, limit}) => {
             <div className='mb-2 text-md tracking-tight text-gray-400 dark:text-white cursor-pointer' onClick={()=>router.push('/dashboard/alltransactions')}>More...</div>
           </div>
           <div>
-          {limit?.map(({id, title, type, category, date, amount}) => {
+          {transactionData.map(({id, title, type, category, date, amount}) => {
+              while(i<3){
+                i++;
               if(type !== "income"){
                 return(
                   <div key={id} className='p-2 my-2 rounded-md px-3 cursor-pointer' onClick={()=>router.push(`/dashboard/detail/${id}`)}>
@@ -122,6 +124,7 @@ export const Dashboard = ({transactionData, limit}) => {
                   </div>
                 </div>
               ) 
+              }
             })}
           </div>
         </div>

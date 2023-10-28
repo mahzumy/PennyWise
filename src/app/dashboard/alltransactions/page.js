@@ -4,7 +4,9 @@ import { API_URL } from '@/config/apiUrl';
 
 async function getTransaction() {
   try {
-    const res = await fetch(`${API_URL}/transaction`,);
+    const res = await fetch(`${API_URL}/transaction?`,{
+      cache: "no-cache",
+    });
     const data = await res.json();
     return data;
   } catch (error) {
