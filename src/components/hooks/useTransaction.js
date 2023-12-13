@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { API_URL } from '@/config/apiUrl';
 
-export const useTransaction = () => {
+export const useTransaction = ({userId}) => {
     const router = useRouter();
 
     const [trans, setTrans] = useState({
@@ -12,7 +12,7 @@ export const useTransaction = () => {
         category: "",
         dete:"",
         amount: 0,
-        notes: "",
+        notes: ""
     })
 
     const handleChange = (e) => {
@@ -29,7 +29,7 @@ export const useTransaction = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ title, type, category, date, amount, notes }),
+                body: JSON.stringify({ title, type, category, date, amount, notes, userId }),
             }
         );
         router.refresh();

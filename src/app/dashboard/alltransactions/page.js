@@ -1,11 +1,13 @@
 import React from 'react'
 import { Alltransactions } from '@/components/dashboard/all.transactions/all.transactions';
 import { API_URL } from '@/config/apiUrl';
+import { cookies } from "next/headers";
+import { decode } from 'jsonwebtoken';
 
-async function getTransaction() {
+async function getTransaction(userId) {
   try {
-    const res = await fetch(`${API_URL}/transaction?`,{
-      cache: "no-cache",
+    const res = await fetch(`${API_URL}/transaction?userId=${userId}`,{
+      cache: "no-store",
     });
     const data = await res.json();
     return data;
@@ -15,7 +17,9 @@ async function getTransaction() {
 }
 
 export default async function page() {
-    const { data } = await getTransaction();
+    const token = cookies().get("token").value
+    const {id: userId} = decode(token)
+    const { data } = await getTransaction(userId);
   return (
     <Alltransactions transactionData={data}/>
   )

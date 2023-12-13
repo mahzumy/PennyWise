@@ -4,7 +4,7 @@ import { TransactionInput } from '@/components/dashboard/transaction/transaction
 import { useRouter } from 'next/navigation';
 
 
-export const TransactionCard = () => {
+export const TransactionCard = ({userId}) => {
   const router = useRouter();
 
   return (
@@ -16,7 +16,7 @@ export const TransactionCard = () => {
               <div className=' text-lg text-blue-600'>Back</div>
           </div>
           <hr />
-        <TransactionInput />
+        <TransactionInput userId={userId}/>
       </div>
   )
 }
