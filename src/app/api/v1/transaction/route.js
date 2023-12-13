@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.get("id");
+  const userId = searchParams.get("userId")
   //const limit = searchParams.get("limit");
     
   try {
@@ -28,6 +29,9 @@ export async function GET(req) {
     // }
 
     const allTrans = await prisma.transactionData.findMany({
+      where:{
+        userId
+      },
       orderBy:[
         {
           date: 'desc'
@@ -42,7 +46,7 @@ export async function GET(req) {
 }
 
 export async function POST(req){
-  const {title, type, category, date, amount, notes} = await req.json();
+  const {title, type, category, date, amount, notes, userId} = await req.json();
   try {
     const tData = await prisma.transactionData.create({
       data:{
@@ -52,7 +56,7 @@ export async function POST(req){
         date,
         amount : Number(amount),
         notes,
-        userId: "clnt4qxby0000ty8sd46xwf8g",
+        userId
       }
     })
     return NextResponse.json({Transaction: tData ,message:"API berjalan sukses"},{status: 200})
@@ -64,7 +68,7 @@ export async function POST(req){
 export async function PATCH(req){
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.get("id");
-  const { title, type, category, date, amount, notes} = await req.json();
+  const { title, type, category, date, amount, notes, userId} = await req.json();
   
    try {
     const tData = await prisma.transactionData.update({
@@ -77,7 +81,6 @@ export async function PATCH(req){
         date,
         amount : Number(amount),
         notes,
-        userId: "clnt4qxby0000ty8sd46xwf8g",
       }
     })
     return NextResponse.json({data: tData ,message:"Transaction Updated succesfully"},{status: 200})

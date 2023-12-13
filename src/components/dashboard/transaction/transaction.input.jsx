@@ -3,8 +3,9 @@ import React from 'react'
 import { useTransaction } from '@/components/hooks/useTransaction';
 import { Option } from './option';
 
-export const TransactionInput = () => {
-  const {trans, handleChange, handleAddTransaction} = useTransaction();
+export const TransactionInput = ({userId}) => {
+   //console.log(userId)
+  const {trans, handleChange, handleAddTransaction} = useTransaction({userId});
 
   return (
     <div className='p-6 space-y-8 md:space-y-8 sm:p-8'>
